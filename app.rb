@@ -10,10 +10,13 @@ before do
 end
 
 get '/id' do
+  sleep 2
   JSON.generate({id: '1'})
 end
 
 get '/items/:id' do
   item = items.select {|item| item[:id] == params['id']}.first
+
+  sleep 2
   JSON.generate(item)
 end
